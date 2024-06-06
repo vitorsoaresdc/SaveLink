@@ -6,3 +6,11 @@
     background: #566981;
     color:#fff;
 }
+
+#descricao {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    box-sizing: border-box;
+}
