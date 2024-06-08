@@ -1,10 +1,17 @@
+body {
+    background: #fbffff;
+    margin: 0;
+    padding: 0;
+}
+
 .card {
     margin:50px
 }
 
 .card-header {
-    background: #566981;
+    background:#374754;
     color:#fff;
+    text-transform: uppercase;
 }
 
 #descricao {
