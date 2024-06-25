@@ -1,7 +1,28 @@
 body {
-    background: #fbffff;
+    background:#eaeae8;
     margin: 0;
     padding: 0;
+}
+
+.navbar {
+    background:#fff;
+}
+
+.logo-container {
+    max-width: 100px;
+}
+
+.navbar-brand img {
+    width:200px;
+}
+
+.d-flex input {
+    width: 400px;
+}
+
+.d-flex button {
+    background:#29a745;
+    color:#fff;
 }
 
 .card {
@@ -20,4 +41,10 @@ body {
     text-overflow: ellipsis;
     width: 100%;
     box-sizing: border-box;
+}
+
+#adicionar-link {
+    position: fixed;
+    bottom:10px;
+    right:10px;
 }

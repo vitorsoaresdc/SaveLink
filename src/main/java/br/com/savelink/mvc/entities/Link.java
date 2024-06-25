@@ -1,4 +1,4 @@
-package br.com.savelink.mvc.model;
+package br.com.savelink.mvc.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

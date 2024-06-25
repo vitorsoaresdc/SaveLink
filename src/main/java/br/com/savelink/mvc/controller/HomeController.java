@@ -1,6 +1,6 @@
 package br.com.savelink.mvc.controller;
 
-import br.com.savelink.mvc.model.Link;
+import br.com.savelink.mvc.entities.Link;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
