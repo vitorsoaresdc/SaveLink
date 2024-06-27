@@ -16,3 +16,18 @@ if (exampleModal) {
         modalBodyInput.value = recipient
     })
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".copiar-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            var linkId = this.getAttribute("data-link-id");
+            var input = document.getElementById("texto-" + linkId);
+            navigator.clipboard.writeText(input.value).then(function() {
+                console.log('Copiado com sucesso!');
+            }).catch(function(err) {
+                console.error('Erro ao copiar: ', err);
+            });
+        });
+    });
+});
