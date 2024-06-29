@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-<!--    <link rel="stylesheet" type="text/css" href="/static/css/style.css">-->
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SaveLink</title>
 </head>
@@ -28,7 +28,7 @@
 </nav>
 
     <div class="container">
-        <div class="card" th:each="link : ${links}">
+        <div class="card" th:each="link : ${links}" th:id="'link-' + ${link.id}">
             <div class="card-header" th:text="${link.nome}">Titulo</div>
 
             <div class="card-body">
@@ -37,12 +37,12 @@
                         <div class="row mb-2">
                             <div>Descrição</div>
                             <div class="form-control" id="descricao" th:text="${link.descricao}" name="">Descrição</div>
+
                             <div>Link</div>
                             <div class="d-flex">
                                 <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.id}" th:value="${link.url}" type="text" value="url">
                                 <button type="button" class="btn btn-success btn-sm me-2 copiar-btn" th:data-link-id="${link.id}">Copiar</button>
-
-                                <button type="button" class="btn btn-danger btn-sm me-2" id="botao-deletar">Deletar</button>
+                                <button type="button" class="btn btn-danger btn-sm me-2" id="botao-deletar" th:data-link-id="${link.id}">Deletar</button>
                             </div>
                         </div>
 
@@ -68,10 +68,12 @@
                         <label for="titulo-name" class="col-form-label">TITULO</label>
                         <input type="text" class="form-control" name="nome" id="titulo-name" required>
                     </div>
+
                     <div class="mb-3">
                         <label for="link-text" class="col-form-label">LINK</label>
                         <textarea class="form-control" name="url" id="link-text" required></textarea>
                     </div>
+
                     <div class="mb-3">
                         <label for="descricao-text" class="col-form-label">DESCRIÇÃO</label>
                         <textarea class="form-control" name="descricao" id="descricao-text"></textarea>
@@ -82,7 +84,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

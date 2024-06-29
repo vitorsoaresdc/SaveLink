@@ -18,7 +18,7 @@ public class LinksController {
     public List<Link> findAll() {
         return repository.findAll();
     }
-
+    @ResponseBody
     @GetMapping(value = "/{id}")
     public Link findAll(@PathVariable Long id) {
         return repository.findById(id).get();
@@ -30,11 +30,12 @@ public class LinksController {
         return "redirect:/home";
     }
 
+    @ResponseBody
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
-
+    @ResponseBody
     @PutMapping("/")
     public void  update(@RequestBody Link link) {
         repository.save(link);
