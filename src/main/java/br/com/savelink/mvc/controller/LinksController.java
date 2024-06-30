@@ -18,6 +18,7 @@ public class LinksController {
     public List<Link> findAll() {
         return repository.findAll();
     }
+
     @ResponseBody
     @GetMapping(value = "/{id}")
     public Link findAll(@PathVariable Long id) {
