@@ -39,7 +39,7 @@
 
                             <div>Link</div>
                             <div class="d-flex">
-                                <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.id}" th:value="${link.url}" type="text" value="url">
+                                <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.id}" th:data-link-id="${link.id}" th:value="${link.url}" type="text" value="url">
                                 <button type="button" class="btn btn-success btn-sm me-2 copiar-btn" th:data-link-id="${link.id}">Copiar</button>
                                 <button type="button" class="btn btn-danger btn-sm me-2" id="botao-deletar" th:data-link-id="${link.id}">Deletar</button>
                             </div>

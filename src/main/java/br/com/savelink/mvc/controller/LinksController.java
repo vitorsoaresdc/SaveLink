@@ -3,6 +3,7 @@ package br.com.savelink.mvc.controller;
 import br.com.savelink.mvc.entities.Link;
 import br.com.savelink.mvc.repositories.LinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -36,10 +37,16 @@ public class LinksController {
     public void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
-    @ResponseBody
-    @PutMapping("/")
-    public void  update(@RequestBody Link link) {
-        repository.save(link);
-    }
 
+
+    @ResponseBody
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Link link) {
+        return repository.findById(id)
+                .map(existingLink -> {
+                    existingLink.setUrl(link.getUrl());
+                    repository.save(existingLink);
+                    return ResponseEntity.ok().build();
+                }).orElse(ResponseEntity.notFound().build());
+    }
 }

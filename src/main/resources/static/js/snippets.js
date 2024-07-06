@@ -47,3 +47,40 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('input[type="text"]');
+
+    inputs.forEach(input => {
+        input.addEventListener('blur', function(event) {
+            const linkId = this.getAttribute('data-link-id');
+            if (linkId) { // Verifica se linkId não é null ou undefined
+                const newValue = this.value;
+
+                fetch('/links/' + linkId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: linkId,
+                        url: newValue
+                    })
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Link atualizado com sucesso!');
+                        } else {
+                            console.error('Falha ao atualizar o link.');
+                        }
+                    })
+                    .catch(error => console.error('Erro ao enviar a requisição:', error));
+            } else {
+                console.error('ID do link é null ou undefined.');
+                console.log(linkId)
+            }
+        });
+    });
+});
+
