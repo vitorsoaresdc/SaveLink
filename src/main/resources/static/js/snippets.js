@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     inputs.forEach(input => {
         input.addEventListener('blur', function(event) {
             const linkId = this.getAttribute('data-link-id');
-            if (linkId) { // Verifica se linkId não é null ou undefined
+            if (linkId) {
                 const newValue = this.value;
 
                 fetch('/links/' + linkId, {
@@ -70,8 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                     .then(response => {
                         if (response.ok) {
-                            console.log('Link atualizado com sucesso!');
-
                             const updateGif = document.querySelector('.update-gif');
                             updateGif.style.display = 'block';
                             setTimeout(() => {
@@ -85,9 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     .catch(error => console.error('Erro ao enviar a requisição:', error));
             } else {
                 console.error('ID do link é null ou undefined.');
-                console.log(linkId)
             }
         });
     });
 });
+
 
