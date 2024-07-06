@@ -71,6 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     .then(response => {
                         if (response.ok) {
                             console.log('Link atualizado com sucesso!');
+
+                            const updateGif = document.querySelector('.update-gif');
+                            updateGif.style.display = 'block';
+                            setTimeout(() => {
+                                updateGif.style.display = 'none';
+                            }, 1500);
+
                         } else {
                             console.error('Falha ao atualizar o link.');
                         }
