@@ -38,7 +38,6 @@ public class LinksController {
         repository.deleteById(id);
     }
 
-
     @ResponseBody
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Link link) {

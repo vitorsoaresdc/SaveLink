@@ -46,7 +46,7 @@
                                     <button type="button" class="btn btn-danger btn-sm me-2" id="botao-deletar" th:data-link-id="${link.id}">Deletar</button>
 
                                     <a th:href="${#strings.startsWith(link.url, 'http') ? link.url : 'http://' + link.url}" target="_blank" rel="noopener noreferrer">
-                                    <button type="button" class="btn btn-warning">Abrir</button>
+                                    <button type="button" class="btn btn-warning botao-abrir-link">Abrir</button>
                                     </a>
                                 </div>
                         </div>
