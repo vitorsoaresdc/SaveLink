@@ -15,7 +15,7 @@ public class HomeController {
     private EntityManager entityManager;
 
     @GetMapping("/index")
-    public String home(Model model) {
+    public String index(Model model) {
 
         Link link = new Link();
         Query query = entityManager.createQuery("SELECT p FROM Link p", Link.class);
@@ -24,4 +24,10 @@ public class HomeController {
         model.addAttribute("links", links);
         return "index";
     }
+
+    @GetMapping("/home")
+    public String home() {
+      return "home";
+    }
+
 }
