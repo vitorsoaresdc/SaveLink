@@ -26,34 +26,34 @@
     </div>
 </nav>
 
-        <div class="container">
-            <div class="card" th:each="link : ${links}" th:id="'link-' + ${link.id}">
-                <div class="card-header" th:text="${link.nome}">Titulo</div>
+<div class="container">
+    <div class="card" th:each="link : ${links}" th:id="'link-' + ${link.id}">
+        <div class="card-header" th:text="${link.nome}">Titulo</div>
 
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-sm-10" mb-3>
-                            <div class="row mb-2">
-                                <div>Descrição</div>
-                                <div class="d-flex">
-                                <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.descricao}" th:data-link-id="${link.id}" th:value="${link.descricao}" type="text" value="url">
-                                </div>
-
-                                <div>Link</div>
-                                <div class="d-flex">
-                                    <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.id}" th:data-link-id="${link.id}" th:value="${link.url}" type="text" value="url">
-                                    <button type="button" class="btn btn-success btn-sm me-2 copiar-btn" th:data-link-id="${link.id}">Copiar</button>
-                                    <button type="button" class="btn btn-danger btn-sm me-2" id="botao-deletar" th:data-link-id="${link.id}">Deletar</button>
-
-                                    <a th:href="${#strings.startsWith(link.url, 'http') ? link.url : 'http://' + link.url}" target="_blank" rel="noopener noreferrer">
-                                    <button type="button" class="btn btn-warning botao-abrir-link">Abrir</button>
-                                    </a>
-                                </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-sm-10" mb-3>
+                    <div class="row mb-2">
+                        <div>Descrição</div>
+                        <div class="d-flex">
+                            <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.descricao}" th:data-link-id="${link.id}" th:value="${link.descricao}" type="text" value="url">
                         </div>
-                     </div>
+
+                        <div>Link</div>
+                        <div class="d-flex">
+                            <input class="form-control me-1 flex-grow-1" th:id="'texto-' + ${link.id}" th:data-link-id="${link.id}" th:value="${link.url}" type="text" value="url">
+                            <button type="button" class="btn btn-success btn-sm me-2 copiar-btn" th:data-link-id="${link.id}">Copiar</button>
+                            <button type="button" class="btn btn-danger btn-sm me-2" id="botao-deletar" th:data-link-id="${link.id}">Deletar</button>
+
+                            <a th:href="${#strings.startsWith(link.url, 'http') ? link.url : 'http://' + link.url}" target="_blank" rel="noopener noreferrer">
+                                <button type="button" class="btn btn-warning botao-abrir-link">Abrir</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
     <button type="button" class="btn btn-primary" id="adicionar-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Adicionar</button>
 
