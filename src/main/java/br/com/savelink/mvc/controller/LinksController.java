@@ -29,7 +29,7 @@ public class LinksController {
     @PostMapping
     public String insert(@ModelAttribute Link link) {
         repository.save(link);
-        return "redirect:/home";
+        return "redirect:/index";
     }
 
     @ResponseBody

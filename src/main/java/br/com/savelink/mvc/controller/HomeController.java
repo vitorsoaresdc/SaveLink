@@ -14,7 +14,7 @@ public class HomeController {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @GetMapping("/home")
+    @GetMapping("/index")
     public String home(Model model) {
 
         Link link = new Link();
@@ -22,6 +22,6 @@ public class HomeController {
         List<Link> links = query.getResultList();
 
         model.addAttribute("links", links);
-        return "home";
+        return "index";
     }
 }
