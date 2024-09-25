@@ -18,7 +18,7 @@ public class HomeController {
     public String index(Model model) {
 
         Link link = new Link();
-        Query query = entityManager.createQuery("SELECT p FROM Link p", Link.class);
+        Query query = entityManager.createQuery("SELECT p FROM Link p order by id DESC", Link.class);
         List<Link> links = query.getResultList();
 
         model.addAttribute("links", links);
